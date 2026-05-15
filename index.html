@@ -3,35 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lotto Pro | Modern Number Generator</title>
+    <title>Lotto Number Generator</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts for premium typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <main class="container">
-        <header>
-            <h1>Lotto Pro</h1>
-            <p style="margin-top: -1.5rem; margin-bottom: 2rem; opacity: 0.7; font-weight: 500;">Your Premium Number Generator</p>
-        </header>
-
-        <section class="number-display" aria-live="polite">
-            <!-- Numbers will be injected here -->
-        </section>
-
-        <footer>
-            <button id="generate-btn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/>
-                    <path d="M21 3v5h-5"/>
-                </svg>
-                Generate Numbers
-            </button>
-            <p style="margin-top: 2rem; font-size: 0.8rem; opacity: 0.5;">Play responsibly. For entertainment purposes only.</p>
-        </footer>
+        <h1>Lotto Number Generator</h1>
+        <div id="lotto-display" class="lotto-display-container">
+            <!-- Web components will be inserted here -->
+        </div>
+        <button id="generate-btn">Generate New Numbers</button>
     </main>
-    <script src="main.js"></script>
+    <script src="main.js" type="module"></script>
 </body>
 </html>

@@ -1,177 +1,43 @@
-@layer base, theme, components, utilities;
-
-@layer base {
-  :root {
-    --bg-color: oklch(98% 0.01 200);
-    --text-color: oklch(20% 0.02 200);
-    --primary-color: oklch(60% 0.15 250);
-    --glass-bg: rgba(255, 255, 255, 0.4);
-    --glass-border: rgba(255, 255, 255, 0.6);
-    --shadow-soft: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-    --shadow-deep: 0 12px 48px 0 rgba(0, 0, 0, 0.2);
-    --ball-size: 3rem;
-  }
-
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background: var(--bg-color);
-    background-image: 
-      radial-gradient(at 0% 0%, oklch(90% 0.05 200) 0, transparent 50%),
-      radial-gradient(at 50% 0%, oklch(90% 0.05 300) 0, transparent 50%),
-      radial-gradient(at 100% 0%, oklch(90% 0.05 100) 0, transparent 50%);
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
-    display: grid;
-    place-items: center;
-    color: var(--text-color);
-    overflow-x: hidden;
-  }
-
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.03;
-    pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    z-index: 100;
-  }
-}
-
-@layer theme {
-  .container {
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
-    border-radius: 24px;
-    padding: 3rem;
-    box-shadow: var(--shadow-deep);
-    width: 90%;
-    max-width: 600px;
-    text-align: center;
-    animation: fadeIn 0.8s ease-out;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 2rem;
-    letter-spacing: -0.02em;
-    background: linear-gradient(135deg, var(--text-color), var(--primary-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-}
-
-@layer components {
-  .number-display {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-bottom: 2.5rem;
-    min-height: 100px;
-  }
-
-  lotto-set {
-    display: flex;
-    justify-content: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-    padding: 1rem;
-    background: rgba(0, 0, 0, 0.03);
-    border-radius: 16px;
-    animation: slideUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
-  }
-
-  lotto-ball {
-    width: var(--ball-size);
-    height: var(--ball-size);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: white;
-    border-radius: 50%;
-    font-weight: 700;
-    font-size: 1.2rem;
-    box-shadow: var(--shadow-soft);
-    position: relative;
-    overflow: hidden;
-    transform: scale(0);
-    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-  }
-
-  lotto-ball::after {
-    content: '';
-    position: absolute;
-    top: 5%;
-    left: 5%;
-    width: 90%;
-    height: 90%;
-    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), transparent);
-    border-radius: 50%;
-    pointer-events: none;
-  }
-
-  button {
-    background: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 1.25rem 2.5rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border-radius: 14px;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 12px oklch(60% 0.15 250 / 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    margin: 0 auto;
-  }
-
-  button:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 8px 24px oklch(60% 0.15 250 / 0.4);
-    filter: brightness(1.1);
-  }
-
-  button:active {
-    transform: translateY(0) scale(0.98);
-  }
-}
-
-@layer utilities {
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes popIn {
-    to { transform: scale(1); }
-  }
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: #fff;
 }
 
 .container {
-  container-type: inline-size;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    text-align: center;
 }
 
-@container (max-width: 400px) {
-  h1 { font-size: 1.75rem; }
-  :root { --ball-size: 2.2rem; }
-  lotto-ball { font-size: 1rem; }
+h1 {
+    margin-bottom: 2rem;
+}
+
+.lotto-display-container {
+    margin-bottom: 2rem;
+}
+
+#generate-btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+#generate-btn:hover {
+    background-color: #0056b3;
 }
